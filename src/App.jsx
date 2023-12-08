@@ -10,7 +10,7 @@
 //   }
 // }
 
-import React, { PureComponent } from "react";
+import React, { PureComponent, lazy } from "react";
 import { Component } from "react";
 import Leo from "./Component/Leo.jsx";
 import BirthdayList from "./Component/BirthdayList.jsx";
@@ -34,10 +34,20 @@ import { Provider } from "react-redux";
 import { store } from "./Component/ReduxComp/redux/store.js";
 import HomeComp from "./Component/FunctionCOMP/HomeComp.jsx";
 import TodoLisDtat from "./Component/FunctionCOMP/TodoLisDtat.jsx";
-import HomeR from "./Component/FunctionCOMP/HomeR.jsx";
-import ProductR from "./Component/FunctionCOMP/ProductR.jsx";
-import AboutR from "./Component/FunctionCOMP/AboutR.jsx";
+
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import DynamicImport from "./Component/DynamicImport.jsx";
+import { Suspense } from "react";
+
+
+// import HomeR from "./Component/FunctionCOMP/HomeR.jsx";
+// import ProductR from "./Component/FunctionCOMP/ProductR.jsx";
+// import AboutR from "./Component/FunctionCOMP/AboutR.jsx";
+
+const HomeR  =  lazy(()=> import("./Component/FunctionCOMP/HomeR.jsx"))
+const ProductR  =  lazy(()=> import("./Component/FunctionCOMP/ProductR.jsx"))
+const AboutR  =  lazy(()=> import("./Component/FunctionCOMP/AboutR.jsx"))
+
 class App extends PureComponent {
   state = {
     count: true,
@@ -72,8 +82,8 @@ class App extends PureComponent {
 
      */}
 
-        <RenderFun/> 
-        <BirthDayFun/>
+        {/* <RenderFun/> 
+        <BirthDayFun/> */}
         {/* <ReactForm/> */}
 
         {/* <ReactHookForm/> */}
@@ -100,8 +110,8 @@ class App extends PureComponent {
 
         <h1>Ar</h1>
 
-     
-
+     {/* <DynamicImport/> */}
+<Suspense fallback={<h1>Loading....</h1>}>
         <BrowserRouter>
         <ul>
           <li>  <Link to="/">Home</Link></li>
@@ -115,6 +125,8 @@ class App extends PureComponent {
             <Route path="/about/:id" element={<AboutR />} />
           </Routes>
         </BrowserRouter>
+
+        </Suspense>
       </div>
     );
   }
