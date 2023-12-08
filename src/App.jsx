@@ -72,7 +72,7 @@ class App extends PureComponent {
 
       <BirthDayFun/> */}
 
-        {/* <RenderFun/>  */}
+        <RenderFun/> 
 
         {/* <ReactForm/> */}
 
