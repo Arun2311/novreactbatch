@@ -8,7 +8,7 @@ export default class AcoordionParent extends Component {
       <div>
         <h1>Today class</h1>
         <but>dsjbcbjdh</but>
-dsnkjsdjhbhjgsddsssa
+dsnkjsdjhbhjgsddsssaMHJGFHJKHGFDS
         {this.state.datas.map((data, i) => (
           <div key={i}>
             {/* <h1>{data.title}</h1>

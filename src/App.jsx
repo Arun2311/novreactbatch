@@ -70,10 +70,10 @@ class App extends PureComponent {
       <DayOneFun movieName={"leo"}/>
       <DayOneFun movieName={"jjdxx"}/>
 
-      <BirthDayFun/> */}
+     */}
 
         <RenderFun/> 
-
+        <BirthDayFun/>
         {/* <ReactForm/> */}
 
         {/* <ReactHookForm/> */}
